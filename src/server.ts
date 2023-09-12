@@ -1,10 +1,12 @@
 import { fastify } from "fastify";
+import { uploadVideo } from "./routes/uploadVideo";
+import { getAllPrompts } from "./routes/getAllPrompts";
 
 const app = fastify()
 
-app.get('/', () => {
-    return 'Hello World'
-})
+app.register(uploadVideo)
+app.register(getAllPrompts)
+
 
 app.listen({
     port: 3333
